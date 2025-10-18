@@ -1,0 +1,469 @@
+    
+  body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: #FAFAFA;
+  overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 { 
+  font-family: 'Poppins', sans-serif; 
+  }
+
+  html { 
+  scroll-behavior: smooth; 
+  }
+
+  /* Infinite Horizontal Scroll */
+  @keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+  }
+
+  .animate-scroll-left {
+  /* animation: scroll-left 30s linear infinite; */
+  display: flex;
+
+  width: fit-content;
+
+  flex-shrink: 0; /* Prevents wrapping */
+  animation: scroll-left 50s linear infinite;
+
+  }
+
+  .animate-scroll-left:hover {
+  animation-play-state: paused;
+  }
+
+  .level-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: white;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  }
+
+  .level-badge:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Animations */
+  @keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  }
+
+  @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+  }
+
+  .animate-float { 
+  animation: float 3s ease-in-out infinite; 
+  }
+
+  .animate-fadeIn { 
+  animation: fadeIn 0.6s ease-out forwards; 
+  }
+
+  .animate-slideInLeft { 
+  animation: slideInLeft 0.6s ease-out forwards; 
+  }
+
+  .animate-slideInRight { 
+  animation: slideInRight 0.6s ease-out forwards; 
+  }
+
+  /* Hover Effects */
+  .hover-lift { 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  }
+
+  .hover-lift:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); 
+  }
+
+  /* Text Gradient */
+  .text-gradient {
+  background: linear-gradient(135deg, #0175C2 0%, #764BA2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  }
+
+  /* Hero Gradient */
+  .hero-gradient {
+  background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Navbar */
+  .navbar {   
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+
+  /* --- HERO polish --- */
+  .glass {
+  background: linear-gradient( to bottom right, rgba(255,255,255,0.14), rgba(255,255,255,0.06) );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .hero-blob {
+  position: absolute;
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+  }
+  .hero-blob-1 { width: 32rem; height: 32rem; left: -8rem; top: -6rem; background: radial-gradient(circle, #7c3aed 0%, transparent 60%); }
+  .hero-blob-2 { width: 28rem; height: 28rem; right: -6rem; bottom: -4rem; background: radial-gradient(circle, #22d3ee 0%, transparent 60%); }
+
+  .feature-pill {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .5rem .9rem; border-radius: 9999px; font-weight: 600;
+  }
+
+  .hero-pill {
+  padding: .45rem .9rem; border-radius: 9999px;
+  color: #fff;
+  }
+
+  .floating-badge {
+  position: absolute;
+  padding: .5rem .9rem; border-radius: .75rem; font-weight: 700;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  animation: float 4s ease-in-out infinite;
+  }
+
+  @media (min-width: 768px) {
+    .md\:left-12 {
+        left: 12rem;
+    }
+  }
+
+
+
+
+  /* Mobile navbar spacing (fine-tune tap targets) */
+  @media (max-width: 640px) {
+  .navbar .h-16 { height: 3.5rem; } /* 56px */
+  }
+
+  /* Countdown responsive fix */
+@media (max-width: 360px) {
+  .countdown-box {
+    transform: scale(0.85);
+  }
+  
+  .countdown-box .min-w-\[68px\] {
+    min-width: 60px !important;
+  }
+}
+
+/* Stats responsive improvement */
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+  }
+}
+
+/* Feature cards mobile spacing */
+@media (max-width: 640px) {
+  .hover-lift {
+    padding: 1.5rem !important;
+  }
+  
+  .hover-lift h3 {
+    font-size: 1.25rem !important;
+  }
+}
+
+
+/* Hero phone enhancement for mobile */
+@media (max-width: 768px) {
+  .hero-phone-mockup {
+    transform: scale(1.1);
+    margin: 2rem 0;
+  }
+  
+  /* Add subtle glow effect */
+  .hero-phone-mockup::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, rgba(1, 117, 194, 0.3) 0%, transparent 70%);
+    filter: blur(30px);
+    z-index: -1;
+    animation: pulse 3s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ============================================ */
+/* PRE-LAUNCH CTA MOBILE OPTIMIZATIONS */
+/* ============================================ */
+
+/* Compact card CTA enhancements */
+.cta-card-compact {
+  transform: translateZ(0); /* Hardware acceleration */
+  will-change: transform;
+}
+
+/* Improve gradient rendering on mobile */
+@media (max-width: 640px) {
+  .bg-gradient-to-br {
+    background-attachment: fixed;
+  }
+  
+  /* Prevent gradient banding on mobile */
+  .cta-card-compact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+      rgba(37, 99, 235, 0.1) 0%, 
+      rgba(147, 51, 234, 0.1) 50%, 
+      rgba(236, 72, 153, 0.1) 100%);
+    pointer-events: none;
+  }
+}
+
+/* Stats grid mobile improvements */
+@media (max-width: 375px) {
+  .cta-card-compact .grid-cols-3 > div {
+    padding: 0.5rem 0;
+  }
+  
+  .cta-card-compact .text-3xl,
+  .cta-card-compact .sm\:text-4xl {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+}
+
+/* Button touch target optimization */
+@media (max-width: 640px) {
+  .cta-card-compact a,
+  .cta-card-compact button {
+    min-height: 48px; /* iOS recommended touch target */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ============================================ */
+/* FINAL CTA SECTION MOBILE OPTIMIZATIONS */
+/* ============================================ */
+
+/* Checklist items mobile spacing */
+@media (max-width: 640px) {
+  .benefits-checklist {
+    padding-left: 0;
+  }
+  
+  .benefits-checklist li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .benefits-checklist svg {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+/* Store badges mobile stacking */
+@media (max-width: 480px) {
+  .store-badges-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .store-badge {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .store-badge svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+/* Launch badge responsive sizing */
+@media (max-width: 375px) {
+  .launch-badge {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.75rem !important;
+  }
+  
+  .launch-badge span:first-child {
+    font-size: 1rem !important;
+  }
+}
+
+/* Prevent text overflow on very small screens */
+@media (max-width: 320px) {
+  .cta-headline {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .cta-subheadline {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ============================================ */
+/* ANIMATION PERFORMANCE OPTIMIZATIONS */
+/* ============================================ */
+
+/* Reduce animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse,
+  .animate-float,
+  .hover\:scale-105 {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Optimize blur effects for mobile */
+@media (max-width: 768px) {
+  .blur-3xl {
+    filter: blur(40px) !important; /* Reduced from default */
+  }
+  
+  .backdrop-blur-sm {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+}
+
+/* ============================================ */
+/* TYPOGRAPHY MOBILE REFINEMENTS */
+/* ============================================ */
+
+/* Improve readability on small screens */
+@media (max-width: 640px) {
+  .cta-section h2,
+  .cta-section h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  /* Tighter letter spacing for French text on mobile */
+  .cta-section {
+    letter-spacing: -0.01em;
+  }
+}
+
+/* ============================================ */
+/* CONTRAST & ACCESSIBILITY IMPROVEMENTS */
+/* ============================================ */
+
+/* Ensure text remains readable on gradient backgrounds */
+.cta-gradient-text {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Improve button contrast */
+.cta-button-white {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button-white:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================ */
+/* LOADING STATE OPTIMIZATIONS */
+/* ============================================ */
+
+/* Skeleton loading for CTA sections */
+.cta-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ============================================ */
+/* SAFE AREA INSETS (for notched devices) */
+/* ============================================ */
+
+@supports (padding: max(0px)) {
+  .cta-card-compact,
+  .cta-section-final {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* ============================================ */
+/* DARK MODE SUPPORT (OPTIONAL) */
+/* ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  /* Enhance gradients in dark mode */
+  .bg-gradient-to-br.from-blue-600 {
+    background-image: linear-gradient(
+      to bottom right,
+      rgb(29, 78, 216),
+      rgb(126, 34, 206),
+      rgb(219, 39, 119)
+    );
+  }
+}
