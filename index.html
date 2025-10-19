@@ -180,38 +180,8 @@
             <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">
                 L'application arrive bientôt !
             </h2>
-            
-            <!-- Countdown Timer -->
-            <div x-data="countdown()" x-init="startCountdown()" class="flex justify-center gap-4 md:gap-8 mb-6">
-                <div class="text-center countdown-box">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-3 sm:p-4 md:p-6 min-w-[68px] sm:min-w-[80px] md:min-w-[100px]">
-                        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" x-text="days">00</div>
-                        <div class="text-xs sm:text-sm md:text-base font-medium mt-2">Jours</div>
-
-                    </div>
-                </div>
-                <div class="text-center countdown-box">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-3 sm:p-4 md:p-6 min-w-[68px] sm:min-w-[80px] md:min-w-[100px]">
-                        <div class="text-4xl md:text-5xl font-bold" x-text="hours">00</div>
-                        <div class="text-sm md:text-base font-medium mt-2">Heures</div>
-                    </div>
-                </div>
-                <div class="text-center countdown-box">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-3 sm:p-4 md:p-6 min-w-[68px] sm:min-w-[80px] md:min-w-[100px]">
-                        <div class="text-4xl md:text-5xl font-bold" x-text="minutes">00</div>
-                        <div class="text-sm md:text-base font-medium mt-2">Minutes</div>
-                    </div>
-                </div>
-                <div class="text-center countdown-box">
-                     <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-3 sm:p-4 md:p-6 min-w-[68px] sm:min-w-[80px] md:min-w-[100px]">
-                        <div class="text-4xl md:text-5xl font-bold" x-text="seconds">00</div>
-                        <div class="text-sm md:text-base font-medium mt-2">Secondes</div>
-                    </div>
-                </div>
-            </div>
-            
             <p class="text-lg md:text-xl text-white/90">
-                Date de lancement : <strong>31 Octobre 2025</strong>
+                Préparez-vous à télécharger MaRevision gratuitement
             </p>
         </div>
     </div>
@@ -941,10 +911,10 @@
         
         <div class="relative z-10 max-w-2xl">
             <!-- Launch Badge -->
-            <div x-data="launchCountdown()" x-init="calculateDaysLeft()" 
-                 class="inline-flex items-center gap-2 bg-white/25 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-                <span class="text-xl">🚀</span>
-                <span class="text-sm font-semibold" x-text="countdownText">Lancement dans 12 jours</span>
+            <!-- Launch Badge -->
+            <div class="inline-flex items-center gap-2 bg-white/25 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+            <span class="text-xl">🚀</span>
+            <span class="text-sm font-semibold">Lancement Bientôt</span>
             </div>
             
             <!-- Main Headline -->
@@ -954,7 +924,7 @@
             
             <!-- Subheadline -->
             <p class="text-lg sm:text-xl text-white/95 leading-relaxed mb-8">
-                MaRevision arrive le <strong>31 octobre 2025</strong>. Soyez prêt à télécharger l'application gratuitement dès le jour du lancement !
+                MaRevision arrive bientôt. Soyez prêt à télécharger l'application gratuitement dès le jour du lancement !
             </p>
 
             <!-- Benefits Checklist -->
@@ -1133,91 +1103,5 @@
 
     <!-- Alpine.js -->
     <script type="module" src="/js/main.js"></script>
-    <script>
-function countdown() {
-    return {
-        days: '00',
-        hours: '00',
-        minutes: '00',
-        seconds: '00',
-        
-        startCountdown() {
-            const launchDate = new Date('October 31, 2025 12:00:00').getTime();
-            
-            const updateCountdown = () => {
-                const now = new Date().getTime();
-                const distance = launchDate - now;
-                
-                if (distance < 0) {
-                    this.days = '00';
-                    this.hours = '00';
-                    this.minutes = '00';
-                    this.seconds = '00';
-                    return;
-                }
-                
-                const newDays = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
-                const newHours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-                const newMinutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-                const newSeconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
-                
-                // Trigger flash animation when values change
-                if (newDays !== this.days) this.flashElement('days');
-                if (newHours !== this.hours) this.flashElement('hours');
-                if (newMinutes !== this.minutes) this.flashElement('minutes');
-                if (newSeconds !== this.seconds) this.flashElement('seconds');
-                
-                this.days = newDays;
-                this.hours = newHours;
-                this.minutes = newMinutes;
-                this.seconds = newSeconds;
-            };
-            
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-        },
-        
-        flashElement(id) {
-            const element = document.getElementById(`countdown-${id}`);
-            if (element) {
-                element.classList.add('number-flash');
-                setTimeout(() => element.classList.remove('number-flash'), 300);
-            }
-        }
-    };
-}
-function launchCountdown() {
-    return {
-        countdownText: 'Lancement bientôt',
-        daysLeft: 0,
-        
-        calculateDaysLeft() {
-            const launchDate = new Date('October 31, 2025 12:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-            
-            if (distance <= 0) {
-                this.countdownText = '🎉 Disponible maintenant !';
-                return;
-            }
-            
-            this.daysLeft = Math.ceil(distance / (1000 * 60 * 60 * 24));
-            
-            // Remove 🚀 from these lines:
-            if (this.daysLeft === 1) {
-                this.countdownText = 'Lancement demain';
-            } else if (this.daysLeft <= 30) {
-                this.countdownText = `Lancement dans ${this.daysLeft} jours`;
-            } else {
-                const weeks = Math.floor(this.daysLeft / 7);
-                this.countdownText = `Lancement dans ${weeks} semaine${weeks > 1 ? 's' : ''}`;
-            }
-            
-            setInterval(() => this.calculateDaysLeft(), 3600000);
-        }
-    };
-}
-</script>
-    
 </body>
 </html>
